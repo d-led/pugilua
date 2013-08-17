@@ -40,14 +40,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug native|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>Debug\</OutDir>
+    <OutDir>..\Lua\lib\</OutDir>
     <IntDir>obj\native\Debug\</IntDir>
     <TargetName>pugilua</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release native|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>Release\</OutDir>
+    <OutDir>..\Lua\lib\</OutDir>
     <IntDir>obj\native\Release\</IntDir>
     <TargetName>pugilua</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -71,7 +71,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>lua5.1.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>\usr\local\lib;..\Lua\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ImportLibrary>Debug\pugilua.lib</ImportLibrary>
+      <ImportLibrary>..\Lua\lib\pugilua.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release native|Win32'">
@@ -97,7 +97,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>lua5.1.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>\usr\local\lib;..\Lua\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ImportLibrary>Release\pugilua.lib</ImportLibrary>
+      <ImportLibrary>..\Lua\lib\pugilua.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

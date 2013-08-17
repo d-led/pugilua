@@ -16,12 +16,12 @@ function DefaultConfig()
 	configuration "Debug"
 		defines { "DEBUG", "_DEBUG" }
 		objdir "Build/obj"
-		targetdir "Build/Debug"
+		targetdir "./Lua/lib"
 		flags { "Symbols" }
 	configuration "Release"
 		defines { "RELEASE" }
 		objdir "Build/obj"
-		targetdir "Build/Release"
+		targetdir "./Lua/lib"
 		flags { "Optimize" }
 	configuration "*" -- to reset configuration filter
 end
@@ -60,10 +60,10 @@ local sln=solution "pugilua"
 		configurations { "Debug", "Release" }
 		platforms { "native" }
 		libdirs { [[/usr/local/lib]] ,
-		          [[./Lua/lib]] }
+		          [[./Lua/lib]] } --check whether the correct lua library linked
 		includedirs {
 			[[/usr/local/include]],
-			[[./Lua/include]],
+			[[./Lua/include]], --check whether the correct lua headers are included
 			[[./LuaBridge/Source/LuaBridge]],
 			[[./pugixml/src]]
 		}

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<node>
+	<test>123</test>
+	<param name="version" type="float" value="1.1" />
+	<description>Simple node</description>
+</node>
