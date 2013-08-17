@@ -57,20 +57,20 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>\usr\local\include;..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <ProgramDataBaseFileName>$(OutDir)pugilua.pdb</ProgramDataBaseFileName>
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>\usr\local\include;..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>lua5.1.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>\usr\local\lib;..\Lua\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Lua\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\Lua\lib\pugilua.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>\usr\local\include;..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,7 +88,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>\usr\local\include;..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Lua\include;..\LuaBridge\Source\LuaBridge;..\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -96,7 +96,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>lua5.1.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>\usr\local\lib;..\Lua\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Lua\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\Lua\lib\pugilua.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
@@ -106,12 +106,9 @@
     <ClInclude Include="..\pugixml\src\pugixml.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\pugilua\pugilua.cpp">
-    </ClCompile>
-    <ClCompile Include="..\pugilua\pugilua_lib.cpp">
-    </ClCompile>
-    <ClCompile Include="..\pugixml\src\pugixml.cpp">
-    </ClCompile>
+    <ClCompile Include="..\pugilua\pugilua.cpp" />
+    <ClCompile Include="..\pugilua\pugilua_lib.cpp" />
+    <ClCompile Include="..\pugixml\src\pugixml.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

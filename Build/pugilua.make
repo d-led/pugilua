@@ -12,10 +12,10 @@ endif
 
 ifeq ($(config),debug_native)
   TARGETDIR = ../Lua/lib
-  TARGET = $(TARGETDIR)/libpugilua.so
+  TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/native/Debug
   DEFINES += -DDEBUG -D_DEBUG
-  INCLUDES += -I"/usr/local/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -fPIC
@@ -23,7 +23,57 @@ ifeq ($(config),debug_native)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L/usr/local/lib -L../Lua/lib -shared
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -shared
+  LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
+	@:
+endif
+
+ifeq ($(config),debug_x32)
+  TARGETDIR = ../Lua/lib
+  TARGET = $(TARGETDIR)/pugilua.so
+  OBJDIR = obj/x32/Debug
+  DEFINES += -DDEBUG -D_DEBUG
+  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  FORCE_INCLUDE +=
+  ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
+  ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -m32 -fPIC
+  ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CFLAGS)
+  ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
+  LIBS += -llua
+  LDDEPS +=
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -shared -m32 -L/usr/lib32
+  LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
+	@:
+endif
+
+ifeq ($(config),debug_x64)
+  TARGETDIR = ../Lua/lib
+  TARGET = $(TARGETDIR)/pugilua.so
+  OBJDIR = obj/x64/Debug
+  DEFINES += -DDEBUG -D_DEBUG
+  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  FORCE_INCLUDE +=
+  ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
+  ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -m64 -fPIC
+  ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CFLAGS)
+  ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
+  LIBS += -llua
+  LDDEPS +=
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -shared -m64 -L/usr/lib64
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -37,10 +87,10 @@ endif
 
 ifeq ($(config),release_native)
   TARGETDIR = ../Lua/lib
-  TARGET = $(TARGETDIR)/libpugilua.so
+  TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/native/Release
   DEFINES += -DRELEASE
-  INCLUDES += -I"/usr/local/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -fPIC
@@ -48,7 +98,57 @@ ifeq ($(config),release_native)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L/usr/local/lib -L../Lua/lib -s -shared
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -s -shared
+  LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
+	@:
+endif
+
+ifeq ($(config),release_x32)
+  TARGETDIR = ../Lua/lib
+  TARGET = $(TARGETDIR)/pugilua.so
+  OBJDIR = obj/x32/Release
+  DEFINES += -DRELEASE
+  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  FORCE_INCLUDE +=
+  ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
+  ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -m32 -fPIC
+  ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CFLAGS)
+  ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
+  LIBS += -llua
+  LDDEPS +=
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -s -shared -m32 -L/usr/lib32
+  LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
+	@:
+endif
+
+ifeq ($(config),release_x64)
+  TARGETDIR = ../Lua/lib
+  TARGET = $(TARGETDIR)/pugilua.so
+  OBJDIR = obj/x64/Release
+  DEFINES += -DRELEASE
+  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  FORCE_INCLUDE +=
+  ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
+  ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -m64 -fPIC
+  ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CFLAGS)
+  ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
+  LIBS += -llua
+  LDDEPS +=
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -s -shared -m64 -L/usr/lib64
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -63,6 +163,7 @@ endif
 OBJECTS := \
 	$(OBJDIR)/pugilua.o \
 	$(OBJDIR)/pugilua_lib.o \
+	$(OBJDIR)/pugixml.o \
 
 RESOURCES := \
 
@@ -121,6 +222,9 @@ $(OBJDIR)/pugilua.o: ../pugilua/pugilua.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 $(OBJDIR)/pugilua_lib.o: ../pugilua/pugilua_lib.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+$(OBJDIR)/pugixml.o: ../pugixml/src/pugixml.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 

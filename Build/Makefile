@@ -11,8 +11,20 @@ endif
 ifeq ($(config),debug_native)
   pugilua_config = debug_native
 endif
+ifeq ($(config),debug_x32)
+  pugilua_config = debug_x32
+endif
+ifeq ($(config),debug_x64)
+  pugilua_config = debug_x64
+endif
 ifeq ($(config),release_native)
   pugilua_config = release_native
+endif
+ifeq ($(config),release_x32)
+  pugilua_config = release_x32
+endif
+ifeq ($(config),release_x64)
+  pugilua_config = release_x64
 endif
 
 PROJECTS := pugilua
@@ -35,7 +47,11 @@ help:
 	@echo ""
 	@echo "CONFIGURATIONS:"
 	@echo "  debug_native"
+	@echo "  debug_x32"
+	@echo "  debug_x64"
 	@echo "  release_native"
+	@echo "  release_x32"
+	@echo "  release_x64"
 	@echo ""
 	@echo "TARGETS:"
 	@echo "   all (default)"

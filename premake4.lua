@@ -17,11 +17,13 @@ function DefaultConfig()
 		defines { "DEBUG", "_DEBUG" }
 		objdir "Build/obj"
 		targetdir "./Lua/lib"
+		targetprefix ""
 		flags { "Symbols" }
 	configuration "Release"
 		defines { "RELEASE" }
 		objdir "Build/obj"
 		targetdir "./Lua/lib"
+		targetprefix ""
 		flags { "Optimize" }
 	configuration "*" -- to reset configuration filter
 end
@@ -32,7 +34,7 @@ function CompilerSpecificConfiguration()
 
 	configuration {"gmake"}
 		postbuildcommands  { "$(TARGET)" }
-		buildoptions { "-std=gnu++0x -fPIC" }
+		buildoptions { "-v -std=gnu++0x -fPIC" }
 
 	configuration {"codeblocks" }
 		postbuildcommands { "$(TARGET_OUTPUT_FILE)"}
@@ -58,11 +60,12 @@ local sln=solution "pugilua"
 	location "Build"
 		sln.absbasedir=path.getabsolute(sln.basedir)
 		configurations { "Debug", "Release" }
-		platforms { "native" }
-		libdirs { [[/usr/local/lib]] ,
-		          [[./Lua/lib]] } --check whether the correct lua library linked
+		platforms { "native","x32", "x64" }
+		libdirs {	[[./Lua/lib]],
+				[[../LuaDist/lib]]
+			} --check whether the correct lua library linked
 		includedirs {
-			[[/usr/local/include]],
+			[[../LuaDist/include]],
 			[[./Lua/include]], --check whether the correct lua headers are included
 			[[./LuaBridge/Source/LuaBridge]],
 			[[./pugixml/src]]
