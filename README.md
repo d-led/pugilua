@@ -63,15 +63,18 @@ or a filter of [vcproj](https://gist.github.com/3832285) or [vcxproj](https://gi
 ### API differences
 
  * There's no explicit cast to boolean of the pugilua objects, hence the classes `xml_parse_result, xml_node and xml_document` have a boolean `property` valid
- * lua classes have no inheritance
+ * lua classes do not have inheritance as pugixml classes do
  * Getter methods are mapped to lua properties and not methods
 
 In-detail API mapping from pugixml to pugilua can be viewed on [google docs](https://docs.google.com/spreadsheet/ccc?key=0AnZVgVA3E-DRdFY5eVp1ZUZHZW9GMzUwY0pfT0VuRVE)
 
 ### Building
 
-Two versions of build scripts exist at the moment: the Visual Studio 2010 solution in the ./scripts/pugilua folder, which outputs to the ./Lua/lib folder to be able to try out the library immediately,
-and a premake4 script and a couple of batch files in the same directory, which creates a new directory Build. Make sure, the right lua version is avaliable globally, especially if you have installed a lua package on linux.
+A premake4 script and a couple of batch files reside in the top directory to generate makefiles into the Build directory. The generated Visual Studio 2012 solution is available in the repository.
+
+Before generating or using the makefiles, check the include and linker paths, so that you compile with the correct lua headers and link to the correct library.
+
+The output is always put into Lua/lib at the moment for convenience, but might be changed, so that different versions can coexist.
 
 Dependencies
 ------------
