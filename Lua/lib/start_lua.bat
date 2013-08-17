@@ -1,0 +1,2 @@
+lua -l pugilua
+pause

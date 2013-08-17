@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pugilua", "pugilua.vcxproj", "{FC0DA9C9-68ED-2765-7105-B33BDD638EC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|native = Debug|native
+		Release|native = Release|native
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC0DA9C9-68ED-2765-7105-B33BDD638EC6}.Debug|native.ActiveCfg = Debug native|Win32
+		{FC0DA9C9-68ED-2765-7105-B33BDD638EC6}.Debug|native.Build.0 = Debug native|Win32
+		{FC0DA9C9-68ED-2765-7105-B33BDD638EC6}.Release|native.ActiveCfg = Release native|Win32
+		{FC0DA9C9-68ED-2765-7105-B33BDD638EC6}.Release|native.Build.0 = Release native|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
