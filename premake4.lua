@@ -61,12 +61,10 @@ local sln=solution "pugilua"
 		sln.absbasedir=path.getabsolute(sln.basedir)
 		configurations { "Debug", "Release" }
 		platforms { "native","x32", "x64" }
-		libdirs {	[[./Lua/lib]],
-				[[../LuaDist/lib]]
+		libdirs {	[[./Lua/lib]]
 			} --check whether the correct lua library linked
-		includedirs {
-			[[../LuaDist/include]],
-			[[./Lua/include]], --check whether the correct lua headers are included
+		includedirs {  --check whether the correct lua headers are included
+			[[./Lua/include]], 
 			[[./LuaBridge/Source/LuaBridge]],
 			[[./pugixml/src]]
 		}
@@ -87,5 +85,7 @@ local sln=solution "pugilua"
 			"./pugixml/src/*.hpp",
 			"./pugixml/src/*.cpp"
 		}
-		if (OS=='linux') then links { "lua" }
-		else  links { "lua5.1" } end
+		configuration "linux"
+			links { "lua" }
+		configuration "windows"
+			links { "lua5.1" }

@@ -15,7 +15,7 @@ ifeq ($(config),debug_native)
   TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/native/Debug
   DEFINES += -DDEBUG -D_DEBUG
-  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -fPIC
@@ -23,7 +23,7 @@ ifeq ($(config),debug_native)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -shared
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -shared
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -40,7 +40,7 @@ ifeq ($(config),debug_x32)
   TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/x32/Debug
   DEFINES += -DDEBUG -D_DEBUG
-  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -m32 -fPIC
@@ -48,7 +48,7 @@ ifeq ($(config),debug_x32)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -shared -m32 -L/usr/lib32
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -shared -m32 -L/usr/lib32
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -65,7 +65,7 @@ ifeq ($(config),debug_x64)
   TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/x64/Debug
   DEFINES += -DDEBUG -D_DEBUG
-  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -m64 -fPIC
@@ -73,7 +73,7 @@ ifeq ($(config),debug_x64)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -shared -m64 -L/usr/lib64
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -shared -m64 -L/usr/lib64
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -90,7 +90,7 @@ ifeq ($(config),release_native)
   TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/native/Release
   DEFINES += -DRELEASE
-  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -fPIC
@@ -98,7 +98,7 @@ ifeq ($(config),release_native)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -s -shared
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -s -shared
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -115,7 +115,7 @@ ifeq ($(config),release_x32)
   TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/x32/Release
   DEFINES += -DRELEASE
-  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -m32 -fPIC
@@ -123,7 +123,7 @@ ifeq ($(config),release_x32)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -s -shared -m32 -L/usr/lib32
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -s -shared -m32 -L/usr/lib32
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -140,7 +140,7 @@ ifeq ($(config),release_x64)
   TARGET = $(TARGETDIR)/pugilua.so
   OBJDIR = obj/x64/Release
   DEFINES += -DRELEASE
-  INCLUDES += -I"../../LuaDist/include" -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
+  INCLUDES += -I"../Lua/include" -I"../LuaBridge/Source/LuaBridge" -I"../pugixml/src"
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) $(FORCE_INCLUDE)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -m64 -fPIC
@@ -148,7 +148,7 @@ ifeq ($(config),release_x64)
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   LIBS += -llua
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -L../../LuaDist/lib -s -shared -m64 -L/usr/lib64
+  ALL_LDFLAGS += $(LDFLAGS) -L../Lua/lib -s -shared -m64 -L/usr/lib64
   LINKCMD = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
