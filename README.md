@@ -3,6 +3,8 @@ pugilua
 
 An almost one-to-one lua binding for [pugixml](http://pugixml.org/).
 
+[![Build Status](https://travis-ci.org/d-led/pugilua.png?branch=master)](https://travis-ci.org/d-led/pugilua)
+
 Usage
 -----
 
