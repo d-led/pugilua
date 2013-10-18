@@ -1,13 +1,18 @@
 local OS=os.get()
 
 local cmd = {
- dir = { linux = "ls", windows = "dir" }
+ dir =     { linux = "ls", windows = "dir", macosx = "ls" },
+ libdirs = { linux = { "" }, windows = { "./Lua/lib" }, macosx = { "" } },
+ includedirs = { linux = { "/usr/include/lua5.1"}, windows = { "./Lua/include", os.getenv("BOOST") }, macosx = { "" } },
+ links = { linux = { "lua5.1-c++" }, windows = { "lua5.1" }, macosx = { "lua","c++" } },
+ location = { linux = "Build", windows = "Build", macosx = "BuildClang" },
+ buildoptions = { linux = "-v -std=gnu++0x -fPIC", windows = "-v -std=c++11 -fPIC", macosx = "-v -stdlib=libc++ -std=c++11 -fPIC" }
 }
 
-local Commands={}
+local cfg={}
 
 for i,v in pairs(cmd) do
- Commands[i]=cmd[i][OS]
+ cfg[i]=cmd[i][OS]
 end
 
 -- Apply to current "filter" (solution/project)
@@ -61,10 +66,9 @@ local sln=solution "pugilua"
 		sln.absbasedir=path.getabsolute(sln.basedir)
 		configurations { "Debug", "Release" }
 		platforms { "native","x32", "x64" }
-		libdirs {	[[./Lua/lib]]
-			} --check whether the correct lua library linked
-		includedirs {  --check whether the correct lua headers are included
-			[[./Lua/include]], 
+		libdirs ( cfg.libdirs )
+		includedirs ( cfg.includedirs )
+		includedirs {
 			[[./LuaBridge/Source/LuaBridge]],
 			[[./pugixml/src]]
 		}
@@ -85,7 +89,4 @@ local sln=solution "pugilua"
 			"./pugixml/src/*.hpp",
 			"./pugixml/src/*.cpp"
 		}
-		configuration "linux"
-			links { "lua" }
-		configuration "windows"
-			links { "lua5.1" }
+		links(cfg.links)

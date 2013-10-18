@@ -1,0 +1,11 @@
+language: cpp
+
+before_script:
+  - sudo apt-get install lua5.1 liblua5.1-dev
+
+script:
+  - make -C Build config=release
+  - cd Lua/lib
+  - ls
+  - lua -l pugilua test.lua
+  - cd ..
