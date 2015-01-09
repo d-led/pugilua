@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="deps">
+      <UniqueIdentifier>{F1A1957C-DDD8-960D-86C5-7C1072DB120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="deps\pugixml">
+      <UniqueIdentifier>{E6BACC53-D21D-5CF8-7BA3-94AE67E5277B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="deps\pugixml\src">
+      <UniqueIdentifier>{FD7BF78F-E974-16E2-12A7-FB66FEFEF5ED}</UniqueIdentifier>
+    </Filter>
     <Filter Include="pugilua">
       <UniqueIdentifier>{FC0DA9C9-68ED-2765-7105-B33BDD638EC6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="pugixml">
-      <UniqueIdentifier>{0B40A9C9-771F-2865-8037-B33BEC958EC6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pugixml\src">
-      <UniqueIdentifier>{A20B2CFD-0EC1-A4F2-97B5-9EC9036A9BF6}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\deps\pugixml\src\pugiconfig.hpp">
+      <Filter>deps\pugixml\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\pugixml\src\pugixml.hpp">
+      <Filter>deps\pugixml\src</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\pugilua\pugilua_lib.h">
       <Filter>pugilua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\pugixml\src\pugiconfig.hpp">
-      <Filter>pugixml\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\pugixml\src\pugixml.hpp">
-      <Filter>pugixml\src</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\deps\pugixml\src\pugixml.cpp">
+      <Filter>deps\pugixml\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\pugilua\pugilua.cpp">
       <Filter>pugilua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\pugilua\pugilua_lib.cpp">
       <Filter>pugilua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\pugixml\src\pugixml.cpp">
-      <Filter>pugixml\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
