@@ -24,7 +24,7 @@ ifeq ($(config),debug32)
   TARGETDIR  = ../../../bin/linux/gmake/x32/Debug
   TARGET     = $(TARGETDIR)/pugilua.so
   DEFINES   += -DDEBUG -D_DEBUG
-  INCLUDES  += -I../../../LuaBridge-1.0.2 -I../../../pugixml/src -I/usr/include/lua5.1
+  INCLUDES  += -I../../../deps/LuaBridge-1.0.2 -I../../../deps/pugixml/src -I/usr/include/lua5.1
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -m32 -fPIC
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -46,7 +46,7 @@ ifeq ($(config),release32)
   TARGETDIR  = ../../../bin/linux/gmake/x32/Release
   TARGET     = $(TARGETDIR)/pugilua.so
   DEFINES   += -DRELEASE
-  INCLUDES  += -I../../../LuaBridge-1.0.2 -I../../../pugixml/src -I/usr/include/lua5.1
+  INCLUDES  += -I../../../deps/LuaBridge-1.0.2 -I../../../deps/pugixml/src -I/usr/include/lua5.1
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -m32 -fPIC
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -68,7 +68,7 @@ ifeq ($(config),debug64)
   TARGETDIR  = ../../../bin/linux/gmake/x64/Debug
   TARGET     = $(TARGETDIR)/pugilua.so
   DEFINES   += -DDEBUG -D_DEBUG
-  INCLUDES  += -I../../../LuaBridge-1.0.2 -I../../../pugixml/src -I/usr/include/lua5.1
+  INCLUDES  += -I../../../deps/LuaBridge-1.0.2 -I../../../deps/pugixml/src -I/usr/include/lua5.1
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -m64 -fPIC
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -90,7 +90,7 @@ ifeq ($(config),release64)
   TARGETDIR  = ../../../bin/linux/gmake/x64/Release
   TARGET     = $(TARGETDIR)/pugilua.so
   DEFINES   += -DRELEASE
-  INCLUDES  += -I../../../LuaBridge-1.0.2 -I../../../pugixml/src -I/usr/include/lua5.1
+  INCLUDES  += -I../../../deps/LuaBridge-1.0.2 -I../../../deps/pugixml/src -I/usr/include/lua5.1
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -m64 -fPIC
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -112,7 +112,7 @@ ifeq ($(config),debug)
   TARGETDIR  = ../../../bin/linux/gmake
   TARGET     = $(TARGETDIR)/pugilua.so
   DEFINES   += -DDEBUG -D_DEBUG
-  INCLUDES  += -I../../../LuaBridge-1.0.2 -I../../../pugixml/src -I/usr/include/lua5.1
+  INCLUDES  += -I../../../deps/LuaBridge-1.0.2 -I../../../deps/pugixml/src -I/usr/include/lua5.1
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -g -fPIC
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -134,7 +134,7 @@ ifeq ($(config),release)
   TARGETDIR  = ../../../bin/linux/gmake
   TARGET     = $(TARGETDIR)/pugilua.so
   DEFINES   += -DRELEASE
-  INCLUDES  += -I../../../LuaBridge-1.0.2 -I../../../pugixml/src -I/usr/include/lua5.1
+  INCLUDES  += -I../../../deps/LuaBridge-1.0.2 -I../../../deps/pugixml/src -I/usr/include/lua5.1
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -O2 -fPIC
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -222,7 +222,7 @@ $(OBJDIR)/pugilua.o: ../../../pugilua/pugilua.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
-$(OBJDIR)/pugixml.o: ../../../pugixml/src/pugixml.cpp
+$(OBJDIR)/pugixml.o: ../../../deps/pugixml/src/pugixml.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 

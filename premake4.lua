@@ -11,12 +11,12 @@ OS = os.get()
 make_shared_lib('pugilua', {
 			"./pugilua/*.h",
 			"./pugilua/*.cpp",
-			"./pugixml/src/*.hpp",
-			"./pugixml/src/*.cpp"
+			"./deps/pugixml/src/*.hpp",
+			"./deps/pugixml/src/*.cpp"
 })
 includedirs {
-    './LuaBridge-1.0.2',
-    './pugixml/src',
+    './deps/LuaBridge-1.0.2',
+    './deps/pugixml/src',
     lua.includedirs[OS]
 }
 libdirs { lua.libdirs[OS] }
