@@ -7,7 +7,7 @@
  * of this file.
  *
  * This work uses pugixml:
- * Copyright (C) 2006-2012, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
+ * Copyright (C) 2006-2014, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
  */
 
 #include <lua.hpp>
