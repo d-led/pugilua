@@ -4,32 +4,9 @@ make_solution 'pugilua'
 
 platforms { "native","x32", "x64" }
 
-includedirs { 
-    './LuaBridge-1.0.2',
-    './pugixml/src'
-}
+lua = assert(dofile 'premake/recipes/lua.lua')
 
-local OS = os.get()
-local settings = {
-    includedirs = {
-        linux = {'/usr/include/lua5.1'},
-        windows = { [[C:\\luarocks\\2.1\\include]] },
-        macosx = { '/usr/local/include'}
-    },
-    libdirs = {
-        linux = {},
-        windows = { [[C:\\luarocks\\2.1]] },
-        macosx = { '/usr/local/lib'}	
-    },
-    links = {
-        linux = { 'lua5.1' },
-        windows = { 'lua5.1' },
-        macosx = { 'lua' }
-    }
-}
-
-includedirs { settings.includedirs[OS] }
-libdirs { settings.libdirs[OS] }
+OS = os.get()
 
 make_shared_lib('pugilua', {
 			"./pugilua/*.h",
@@ -37,7 +14,12 @@ make_shared_lib('pugilua', {
 			"./pugixml/src/*.hpp",
 			"./pugixml/src/*.cpp"
 })
-
-links( settings.links[OS] )
+includedirs {
+    './LuaBridge-1.0.2',
+    './pugixml/src',
+    lua.includedirs[OS]
+}
+libdirs { lua.libdirs[OS] }
+links( lua.links[OS] )
 
 targetprefix ""
