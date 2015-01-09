@@ -39,3 +39,5 @@ make_shared_lib('pugilua', {
 })
 
 links( settings.links[OS] )
+
+targetprefix ""

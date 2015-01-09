@@ -5,3 +5,5 @@ before_script:
 
 script:
   - make -C Build/linux/gmake config=release64
+  - cd test
+  - lua -e 'package.cpath=[[../bin/linux/gmake/?.so;]]..package.cpath' -l pugilua test.lua

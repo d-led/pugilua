@@ -4,7 +4,7 @@ print(pugi.version)
 
 local doc=pugi.xml_document()
 os.execute("cd")
-local res=doc:load_file [[../../Build/pugilua.vcxproj]]
+local res=doc:load_file [[../Build/windows/vs2013/pugilua.vcxproj]]
 print(res.description)
 assert(res.valid)
 
