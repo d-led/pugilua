@@ -501,7 +501,7 @@ namespace pugi {
 
             bool set_node_set(RefCountedPtr<lxpath_node_set> s) {
                 if (var) 
-                    return var->set(s.get());
+                    return var->set(!!s.get());
                 else
                     return false;
             }
