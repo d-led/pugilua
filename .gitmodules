@@ -1,6 +1,6 @@
 [submodule "pugixml"]
 	path = pugixml
 	url = https://github.com/zeux/pugixml.git
-[submodule "LuaBridge"]
-	path = LuaBridge
-	url = https://github.com/d-led/LuaBridge.git
+[submodule "premake"]
+	path = premake
+	url = https://github.com/d-led/premake-meta-cpp.git
