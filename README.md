@@ -72,7 +72,7 @@ In-detail API mapping from pugixml to pugilua can be viewed on [google docs](htt
 
 ### Building
 
-A premake4 script and a couple of batch files reside in the top directory to generate makefiles into the Build directory. The generated Visual Studio 2012 solution is available in the repository.
+A premake4 script and a couple of batch files reside in the top directory to generate makefiles into the Build directory. The generated Visual Studio 2013 solution is available in the repository.
 
 Before generating or using the makefiles, check the include and linker paths, so that you compile with the correct lua headers and link to the correct library.
 
