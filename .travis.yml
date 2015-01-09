@@ -4,6 +4,6 @@ before_script:
   - sudo apt-get install lua5.1 liblua5.1-dev
 
 script:
-  - make -C Build/linux/gmake config=release64
+  - make -C Build/linux/gmake config=release
   - cd test
   - lua -e 'package.cpath=[[../bin/linux/gmake/?.so;]]..package.cpath' -l pugilua test.lua
