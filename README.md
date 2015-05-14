@@ -8,11 +8,6 @@ An almost one-to-one lua binding for [pugixml](http://pugixml.org/).
 Usage
 -----
 
-Use the visual studio project to compile in Visual Studio. The release build will be copied into the Lua/lib folder, where you can start
-lua directly and use the library by calling `require 'pugilua'`. Follow the test and the binding definitions in contrib/pugilua/pugilua_lib.cpp for API differences from the original C++ API. Pugilua objects reside in the
-pugi 'namespace' in Lua.
-
-Example of usage:
 ````lua
 require 'pugilua'
 
