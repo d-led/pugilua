@@ -1,7 +1,10 @@
 language: cpp
 
-before_script:
-  - apt-get install lua5.1 liblua5.1-dev
+addons:
+  apt:
+    packages:
+      - lua5.1
+      - liblua5.1-dev
 
 script:
   - make -C Build/linux/gmake config=release
