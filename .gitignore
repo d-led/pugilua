@@ -211,3 +211,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+*.db
+Build/windows/vs2013/pugilua.VC.VC.opendb
