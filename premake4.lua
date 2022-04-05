@@ -6,6 +6,8 @@ platforms { "native","x32", "x64" }
 
 lua = assert(dofile 'premake/recipes/lua.lua')
 
+lua.includedirs.macosx[#lua.includedirs.macosx] = '/usr/local/include/lua'
+
 OS = os.get()
 
 make_shared_lib('pugilua', {

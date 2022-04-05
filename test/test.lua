@@ -1,3 +1,24 @@
+local potential_paths = {
+	'../bin/windows/vs2013/x32/Release/?.dll',
+	'../bin/windows/vs2013/x32/Debug/?.dll',
+	'../bin/windows/vs2013/x64/Release/?.dll',
+	'../bin/windows/vs2013/x64/Debug/?.dll',
+	'../bin/windows/vs2013/native/Release/?.dll',
+	'../bin/windows/vs2013/native/Debug/?.dll',
+	'../bin/linux/gmake/x32/Release/?.so',
+	'../bin/linux/gmake/x32/Debug/?.so',
+	'../bin/linux/gmake/x64/Release/?.so',
+	'../bin/linux/gmake/?.so',
+	'../bin/linux/gmake/x64/Debug/?.so',
+	'../bin/macosx/gmake/x32/Debug/?.dylib',
+	'../bin/macosx/gmake/x32/Release/?.dylib',
+	'../bin/macosx/gmake/x64/Debug/?.dylib',
+	'../bin/macosx/gmake/x64/Release/?.dylib'
+}
+
+local extra_cpath = table.concat(potential_paths, ";");
+package.cpath = extra_cpath..';'..package.cpath
+
 assert(require 'pugilua')
 
 print(pugi.version)
